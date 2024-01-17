@@ -1,5 +1,5 @@
 export const Light ={
-  body: "#a82727",
+  body: "#a82728",
   text: "#202020",
   bodyRgba: "255, 255, 255",
   textRgba: "32,32,32",
