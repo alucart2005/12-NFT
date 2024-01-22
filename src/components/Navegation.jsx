@@ -3,14 +3,16 @@ import { Logo } from "../pages/logo";
 import { useState } from "react";
 
 export function Navegation() {
-  const [click, setClick] = useState(true);
+  const [click, setClick] = useState(false);
   return (
     <Section>
       <NavBar>
         <Logo />
+        <HamburgerMenu click={click} onClick={() => setClick(!click)}>
+          {/* {console.log(click)} */}
+        </HamburgerMenu>
         <Menu click={click}>
-          <MenuItem>
-          Home</MenuItem>
+          <MenuItem>Home</MenuItem>
         </Menu>
       </NavBar>
     </Section>
@@ -42,6 +44,13 @@ const Menu = styled.ul`
     bottom: 0;
     width: 100vw;
     background-color: ${(props) => `rgba(${props.theme.bodyRgba},0.85)`};
+    backdrop-filter: blur(2px);
+    transform: ${(props) =>
+      props.click ? "translateY(0)" : "translateY(100%)"};
+    transition: all 0.3s ease;
+    flex-direction: column;
+    justify-content: center;
+    touch-action: none;
   }
 `;
 const MenuItem = styled.li`
@@ -49,16 +58,51 @@ const MenuItem = styled.li`
   color: ${(props) => props.theme.text};
   cursor: pointer;
   font-size: ${(props) => props.theme.fontlg};
-  &::after{
+  &::after {
     content: " ";
     display: block;
     width: 0%;
     height: 2px;
-    background: ${(props)=>props.theme.text};
+    background: ${(props) => props.theme.text};
     transition: width 0.3s ease;
   }
-  &:hover::after{
+  &:hover::after {
     width: 100%;
-
+  }
+  @media (max-width: 64em) {
+    margin: 1rem 0;
+    font-size: ${(props) => props.theme.fontmd};
+    &::after {
+      display: none;
+    }
+  }
+`;
+const HamburgerMenu = styled.span`
+  width: ${(props) => (props.click ? "2rem" : "1.5rem")};
+  height: 2px;
+  background: ${(props) => props.theme.text};
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: ${(props) =>
+    props.click
+      ? "translateX(-50%) rotate(90deg)"
+      : "translateX(-50%) rotate(0)"};
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  @media (max-width: 64em) {
+    display: flex;
+  }
+  &::after,
+  &::before {
+    content: " ";
+    width: ${(props) => (props.click ? "1rem" : "1.5rem")};
+    height: 2px;
+    right: ${(props) => (props.click ? "-2px" : "0")};
+    background: ${(props) => props.theme.text};
+    position: absolute;
   }
 `;
