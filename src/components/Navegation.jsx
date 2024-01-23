@@ -4,15 +4,27 @@ import { useState } from "react";
 
 export function Navegation() {
   const [click, setClick] = useState(false);
+  const scrollTo = (id) => {
+    let element = document.getElementById(id);
+    /*Ocupe 100% elemento*/
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    setClick(!click);
+  };
   return (
-    <Section>
+    <Section id="navigation">
       <NavBar>
         <Logo />
-        <HamburgerMenu click={click} onClick={() => setClick(!click)}>
-          {/* {console.log(click)} */}
-        </HamburgerMenu>
+        <HamburgerMenu
+          click={click}
+          onClick={() => setClick(!click)}
+        ></HamburgerMenu>
         <Menu click={click}>
-          <MenuItem>Home</MenuItem>
+          <MenuItem onClick={()=>scrollTo("home")}>Home</MenuItem>
+          <MenuItem onClick={()=>scrollTo("about")}>About</MenuItem>
         </Menu>
       </NavBar>
     </Section>
@@ -92,7 +104,7 @@ const HamburgerMenu = styled.span`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   @media (max-width: 64em) {
     display: flex;
   }
@@ -104,5 +116,13 @@ const HamburgerMenu = styled.span`
     right: ${(props) => (props.click ? "-2px" : "0")};
     background: ${(props) => props.theme.text};
     position: absolute;
+  }
+  &::after {
+    top: ${(props) => (props.click ? "0.3rem" : "0.5rem")};
+    transform: ${(props) => (props.click ? "rotate(-40deg)" : "rotate(0)")};
+  }
+  &::before {
+    bottom: ${(props) => (props.click ? "0.3rem" : "0.5rem")};
+    transform: ${(props) => (props.click ? "rotate(40deg)" : "rotate(0)")};
   }
 `;
