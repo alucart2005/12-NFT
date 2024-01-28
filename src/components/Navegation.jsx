@@ -55,6 +55,7 @@ const Menu = styled.ul`
     right: 0;
     bottom: 0;
     width: 100vw;
+    z-index:100;
     background-color: ${(props) => `rgba(${props.theme.bodyRgba},0.85)`};
     backdrop-filter: blur(2px);
     transform: ${(props) =>
@@ -94,7 +95,7 @@ const HamburgerMenu = styled.span`
   height: 2px;
   background: ${(props) => props.theme.text};
   position: absolute;
-  top: 2rem;
+  top: 3rem;
   left: 50%;
   transform: ${(props) =>
     props.click
