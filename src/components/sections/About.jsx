@@ -1,12 +1,35 @@
-import styled from "styled-components";
+import styled,{ThemeProvider} from "styled-components";
 import { Carousel } from "../Carousel";
+import {Button} from "../Button"
+import { Dark } from "../../styles/Themes";
 
 export function About() {
   return (
     <Section id="about">
       <Container>
         <Box>
-          <Carousel/>
+          <Carousel />
+        </Box>
+        <Box>
+          <Title>
+            Bienvenido al club <br /> de los bichos raros
+          </Title>
+          <SubText>
+            WEIRDOS CLUB es una colección privada: coleccionables digitales
+            únicos. Los Weirdos se almacenan como tokens ERC-721 en la cadena de
+            bloques de Ethereum y se alojan en IPFS
+          </SubText>
+          <SubTextlight>
+            Con más de 200 rasgos dibujados a mano, cada NFT es único y viene
+            con una membresía a un grupo exclusivo de inversores exitosos. Únase
+            a una ambiciosa comunidad en constante crecimiento con múltiples
+            beneficios y utilidades.
+          </SubTextlight>
+          <ButtonContainer>
+            <ThemeProvider theme={Dark}>
+              <Button text="UNIRSE A DISCORD" link="#"/>
+            </ThemeProvider>
+          </ButtonContainer>
         </Box>
       </Container>
     </Section>
@@ -57,3 +80,72 @@ const Box = styled.div`
     min-height: 50vh;
   }
 `;
+const Title = styled.h2`
+  font-size: ${(props) => props.theme.fontxxl};
+  text-transform: capitalize;
+  color: ${(props) => props.theme.body};
+  align-self: flex-start;
+  width: 80%;
+  margin: 0 auto;
+  @media (max-width: 64em) {
+    width: 100%;
+    text-align: center;
+  }
+  @media (max-width: 40em) {
+    font-size: ${(props) => props.theme.fontxl};
+  }
+  @media (max-width: 30em) {
+    font-size: ${(props) => props.theme.fontlg};
+  }
+`;
+const SubText = styled.p`
+  font-size: ${(props) => props.theme.fontlg};
+  color: ${(props) => props.theme.body};
+  align-self: flex-start;
+  width: 80%;
+  margin: 1rem auto;
+  font-weight: 400;
+  @media (max-width: 64em) {
+    width: 100%;
+    text-align: center;
+    font-size: ${(props) => props.theme.fontlg};
+  }
+  @media (max-width: 40em) {
+    text-align: center;
+    font-size: ${(props) => props.theme.fontmd};
+  }
+  @media (max-width: 30em) {
+    font-size: ${(props) => props.theme.fontsm};
+  }
+`;
+const SubTextlight = styled.p`
+  font-size: ${(props) => props.theme.fontmd};
+  color: ${(props) => `rgba(${props.theme.bodyRgba})`};
+  align-self: flex-start;
+  width: 80%;
+  margin: 1rem auto;
+  font-weight: 400;
+  @media (max-width: 64em) {
+    width: 100%;
+    text-align: center;
+    font-size: ${(props) => props.theme.fontsm};
+  }
+  @media (max-width: 40em) {
+    font-size: ${(props) => props.theme.fontsm};
+  }
+  @media (max-width: 30em) {
+    font-size: ${(props) => props.theme.fontxs};
+  }
+`;
+const ButtonContainer = styled.div`
+  width: 80%;
+  margin: 1rem auto;
+  display: flex;
+  align-items: flex-start;
+  @media (max-width: 64em){
+    width: 100%;
+    a{
+      margin: 0 auto;
+    }
+  }
+`

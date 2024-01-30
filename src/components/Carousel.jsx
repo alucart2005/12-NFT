@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
 // import Swiper core and required modules
-import { EffectCards, Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import {
+  EffectCards,
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,7 +16,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+//import "swiper/css/scrollbar";
+import "swiper/css/effect-cards";
 
 import img1 from "../assets/Nfts/bighead.svg";
 import img2 from "../assets/Nfts/bighead-1.svg";
@@ -23,19 +31,19 @@ import img9 from "../assets/Nfts/bighead-8.svg";
 import img10 from "../assets/Nfts/bighead-9.svg";
 import img11 from "../assets/Nfts/bighead-10.svg";
 
-import Arrow from "../assets/Arrow.svg"
+import Arrow from "../assets/Arrow.svg";
 
 export function Carousel() {
   return (
     <Container>
       <Swiper
         // install Swiper modules
-        autoplay={{delay:2000, disableOnInteraction:false}}
-        modules={[EffectCards, Navigation, Pagination, Scrollbar, A11y]}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        modules={[EffectCards, Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         //spaceBetween={50}
         //slidesPerView={1}
         navigation={true}
-        pagination={{ type:"fraction" }}
+        pagination={{ type: "fraction" }}
         scrollbar={{ draggable: true }}
         effect={"cards"}
       >
@@ -78,6 +86,7 @@ const Container = styled.div`
   height: 70vh;
   @media (max-width: 70em) {
     height: 60vh;
+    padding: 15px 0;
   }
   @media (max-width: 64em) {
     height: 50vh;
@@ -101,22 +110,22 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    img{
+    img {
       display: block;
       width: 100%;
       height: auto;
       object-fit: cover;
     }
   }
-  .swiper-button-next{
-    color: ${(props)=> props.theme.text};
+  .swiper-button-next {
+    color: ${(props) => props.theme.text};
     right: 0;
     width: 4rem;
     top: 60%;
     background-image: url(${Arrow});
     background-position: center;
     background-size: cover;
-    &::after{
+    &::after {
       display: none;
     }
     @media (max-width: 64em) {
@@ -124,5 +133,25 @@ const Container = styled.div`
     }
     @media (max-width: 30em) {
       width: 2rem;
-    }  }
+    }
+  }
+  .swiper-button-prev {
+    color: ${(props) => props.theme.text};
+    right: 0;
+    width: 4rem;
+    top: 60%;
+    background-image: url(${Arrow});
+    background-position: center;
+    background-size: cover;
+    transform: rotate(180deg);
+    &::after {
+      display: none;
+    }
+    @media (max-width: 64em) {
+      width: 3rem;
+    }
+    @media (max-width: 30em) {
+      width: 2rem;
+    }
+  }
 `;
