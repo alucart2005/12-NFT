@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Logo } from "../pages/logo";
+import { Logo } from "./Logo";
 import { useState } from "react";
 
 export function Navegation() {
@@ -25,6 +25,7 @@ export function Navegation() {
         <Menu click={click}>
           <MenuItem onClick={()=>scrollTo("home")}>Home</MenuItem>
           <MenuItem onClick={()=>scrollTo("about")}>About</MenuItem>
+          <MenuItem onClick={()=>scrollTo("roadmap")}>Road Map</MenuItem>
         </Menu>
       </NavBar>
     </Section>
