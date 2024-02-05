@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import styled, { keyframes } from "styled-components";
-
 import img1 from "../../assets/Nfts/bighead.svg";
 import img2 from "../../assets/Nfts/bighead-1.svg";
 import img3 from "../../assets/Nfts/bighead-2.svg";
@@ -13,21 +13,54 @@ import img10 from "../../assets/Nfts/bighead-9.svg";
 import img11 from "../../assets/Nfts/bighead-10.svg";
 import ETH from "../../assets/icons8-ethereum-48.png";
 
-const NftItem = ({ img, number = 0, price = 0 }) => {
+import { useRef } from "react";
+
+const NftItem = ({ img, number = 0, price = 0, passRef }) => {
+  let play = (e) => {
+    passRef.current.style.animationPlayState = "running";
+  };
+  let pause = (e) => {
+    passRef.current.style.animationPlayState = "paused";
+  };
   return (
-    <ImgContainer>
+    <ImgContainer onMouseOver={e=>pause(e)} onMouseOut={e=>play(e)}>
       <img width={500} height={400} src={img} />
+      <Details>
+        <div>
+          <span>Nfts</span> <br />
+          <h1>#{number}</h1>
+        </div>
+        <div>
+          <span>Price</span>
+          <Price>
+            <img width={200} height={200} src={ETH} alt="ETH" /> <br />
+            <h1>{Number(price).toFixed(1)}</h1>
+          </Price>
+        </div>
+      </Details>
     </ImgContainer>
   );
 };
 
 export function Showcase() {
+  const Row1Ref = useRef(null);
+  const Row2Ref = useRef(null);
   return (
-    <Section>
-      <Row direction="none">
-        <NftItem img={img1} number={100} price={100} />
-        <NftItem img={img2} number={100} price={100} />
-        <NftItem img={img3} number={100} price={100} />
+    <Section id="cards">
+      <Row direction="none" ref={Row1Ref}>
+        <NftItem img={img1} number={1} price={10} passRef={Row1Ref}/>
+        <NftItem img={img2} number={2} price={20} passRef={Row1Ref}/>
+        <NftItem img={img3} number={3} price={30} passRef={Row1Ref}/>
+        <NftItem img={img4} number={4} price={40} passRef={Row1Ref}/>
+        <NftItem img={img5} number={5} price={50} passRef={Row1Ref}/>
+        <NftItem img={img6} number={6} price={60} passRef={Row1Ref}/>
+      </Row>
+      <Row direction="reverse" ref={Row2Ref}>
+        <NftItem img={img7} number={8} price={80} passRef={Row2Ref}/>
+        <NftItem img={img8} number={8} price={80} passRef={Row2Ref}/>
+        <NftItem img={img9} number={9} price={90} passRef={Row2Ref}/>
+        <NftItem img={img10} number={10} price={100} passRef={Row2Ref}/>
+        <NftItem img={img11} number={11} price={1100} passRef={Row2Ref}/>
       </Row>
     </Section>
   );
@@ -63,13 +96,13 @@ const Section = styled.section`
   & > *:first-child {
     animation-duration: 20s;
     @media (max-width: 30em) {
-      animation-duration: 15s;
+      animation-duration: 25s;
     }
   }
   & > *:last-child {
-    animation-duration: 15s;
+    animation-duration: 25s;
     @media (max-width: 30em) {
-      animation-duration: 10s;
+      animation-duration: 35s;
     }
   }
 `;
@@ -84,4 +117,35 @@ const Row = styled.div`
   display: flex;
   animation: ${move} linear infinite ${(props) => props.direction};
 `;
-
+const Details = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  background-color: ${(props) => props.theme.text};
+  border: 2px solid ${(props) => `rgba(${props.theme.bodyRgba},0.5)`};
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  span {
+    font-size: ${(props) => props.theme.fontsm};
+    color: ${(props) => `rgba(${props.theme.bodyRgba},0.5)`};
+    font-weight: 600;
+    line-height: 1.5rem;
+  }
+  h1 {
+    font-size: ${(props) => props.theme.fontmd};
+    color: ${(props) => props.theme.body};
+    font-weight: 600;
+    @media (max-width: 30em) {
+      font-size: ${(props) => props.theme.fontsm};
+    }
+  }
+`;
+const Price = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  img {
+    width: 1rem;
+    height: auto;
+  }
+`;
