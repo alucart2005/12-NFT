@@ -6,17 +6,19 @@ import { Home } from "../components/sections/Home";
 import { About } from "../components/sections/About";
 import { Roadmap } from "../components/sections/RoadMap";
 import { Showcase } from "../components/sections/ShowCase";
+import { Teams } from "../components/sections/Teams";
 
 export function MenuPrincipal() {
   return (
     <main>
       <GlobalStyles />
       <ThemeProvider theme={Light}>
-        <Navegation  />
-        <Home/>
-        <About/>
-        <Roadmap/>
-<Showcase/>
+        <Navegation />
+        <Home />
+        <About />
+        <Roadmap />
+        <Showcase />
+        <Teams/>
       </ThemeProvider>
     </main>
   );
