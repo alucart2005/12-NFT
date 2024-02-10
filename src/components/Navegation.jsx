@@ -28,6 +28,7 @@ export function Navegation() {
           <MenuItem onClick={()=>scrollTo("roadmap")}>Road Map</MenuItem>
           <MenuItem onClick={()=>scrollTo("cards")}>Cards</MenuItem>
           <MenuItem onClick={()=>scrollTo("team")}>Team</MenuItem>
+          <MenuItem onClick={()=>scrollTo("questions")}>Questions</MenuItem>
         </Menu>
       </NavBar>
     </Section>
