@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "@fontsource/akaya-telivigala";
 
-export function Logo() {
+export function Logo({text="R."}) {
   return (
     <LogoText>
-      <Link to="/">R.</Link>
+      <Link to="/">{text}</Link>
     </LogoText>
   );
 }
+
 const LogoText = styled.h1`
   font-family: "Akaya Telivigala", cursive;
   font-size: ${(props) => props.theme.fontxxl};

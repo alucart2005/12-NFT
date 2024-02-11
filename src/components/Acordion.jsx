@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import {Minus} from "./icons/Minus"
+import {Plus} from "./icons/Plus"
 
 export function Acordion({title,children,ScrollTrigger}) {
   const [collapse, setCollapse] = useState(false);
@@ -12,6 +14,12 @@ export function Acordion({title,children,ScrollTrigger}) {
         <Name>
           <span>{title}</span>
         </Name>
+        {collapse ? <Indicator>
+          <Minus/>
+        </Indicator>
+        : <Indicator>
+          <Plus/>
+          </Indicator>}
       </Title>
       <Reveal clicked={collapse}>
         {children}

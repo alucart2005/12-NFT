@@ -17,7 +17,7 @@ export function Navegation() {
   return (
     <Section id="navigation">
       <NavBar>
-        <Logo />
+        <Logo/>
         <HamburgerMenu
           click={click}
           onClick={() => setClick(!click)}
