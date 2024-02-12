@@ -9,6 +9,7 @@ import { Showcase } from "../components/sections/ShowCase";
 import { Teams } from "../components/sections/Teams";
 import { Questions } from "../components/Questions";
 import { Footer } from "../components/sections/Footer";
+import { ScrollToTop } from "../components/ScrollToTop";
 
 export function MenuPrincipal() {
   return (
@@ -24,6 +25,7 @@ export function MenuPrincipal() {
         <Questions/>
         <Footer/>
       </ThemeProvider>
+      <ScrollToTop/>
     </main>
   );
 }
