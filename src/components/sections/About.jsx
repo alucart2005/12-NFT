@@ -1,14 +1,19 @@
-import styled,{ThemeProvider} from "styled-components";
-import { Carousel } from "../Carousel";
-import {Button} from "../Button"
+import styled, { ThemeProvider } from "styled-components";
+// import { Carousel } from "../Carousel";
+import { Button } from "../Button";
 import { Dark } from "../../styles/Themes";
+import { Suspense, lazy } from "react";
+import { Loading } from "../Loading";
+const Carousel = lazy(() => import("../Carousel"));
 
 export function About() {
   return (
     <Section id="about">
       <Container>
         <Box>
-          <Carousel />
+          <Suspense fallback={<Loading/>}>
+            <Carousel />
+          </Suspense>
         </Box>
         <Box>
           <Title>
@@ -27,7 +32,7 @@ export function About() {
           </SubTextlight>
           <ButtonContainer>
             <ThemeProvider theme={Dark}>
-              <Button text="UNIRSE A DISCORD" link="#"/>
+              <Button text="UNIRSE A DISCORD" link="#" />
             </ThemeProvider>
           </ButtonContainer>
         </Box>
@@ -142,10 +147,10 @@ const ButtonContainer = styled.div`
   margin: 1rem auto;
   display: flex;
   align-items: flex-start;
-  @media (max-width: 64em){
+  @media (max-width: 64em) {
     width: 100%;
-    a{
+    a {
       margin: 0 auto;
     }
   }
-`
+`;
