@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GIF from "../assets/Home Video.mp4"
 
-export function CoverVideo() {
+export default function CoverVideo() {
   return (<VideoContainer>
     <video src={GIF} type="video" autoPlay muted loop/>
   </VideoContainer>);

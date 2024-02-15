@@ -1,9 +1,9 @@
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Typewriter from "typewriter-effect";
 import { Button } from "./Button";
 import "@fontsource/akaya-telivigala";
 
-export function TypeWriterText() {
+export default function TypeWriterText() {
   return (
     <>
       <Title>
