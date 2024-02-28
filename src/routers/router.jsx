@@ -5,7 +5,7 @@ export function MyRoutes() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="" element={<MenuPrincipal/>}/>
+      <Route path="/" element={<MenuPrincipal/>}/>
     </Routes>
     </BrowserRouter>
   );
