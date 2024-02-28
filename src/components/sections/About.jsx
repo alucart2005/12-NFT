@@ -1,5 +1,4 @@
 import styled, { ThemeProvider } from "styled-components";
-// import { Carousel } from "../Carousel";
 import { Button } from "../Button";
 import { Dark } from "../../styles/Themes";
 import { Suspense, lazy } from "react";
@@ -17,22 +16,17 @@ export function About() {
         </Box>
         <Box>
           <Title>
-            Bienvenido al club <br /> de los bichos raros
+          development of responsive<br />and easy-to-use web solutions
           </Title>
           <SubText>
-            WEIRDOS CLUB es una colección privada: coleccionables digitales
-            únicos. Los Weirdos se almacenan como tokens ERC-721 en la cadena de
-            bloques de Ethereum y se alojan en IPFS
+          I am a web developer passionate about crafting user-friendly web apps. I enjoy turning ideas into functional digital experiences, staying updated with tech.
           </SubText>
           <SubTextlight>
-            Con más de 200 rasgos dibujados a mano, cada NFT es único y viene
-            con una membresía a un grupo exclusivo de inversores exitosos. Únase
-            a una ambiciosa comunidad en constante crecimiento con múltiples
-            beneficios y utilidades.
+          As a web developer, I am passionate about creating user-friendly web apps, thriving on translating ideas into appealing digital experiences. I am committed to learning and staying updated on the latest web technologies to deliver innovative solutions.
           </SubTextlight>
           <ButtonContainer>
             <ThemeProvider theme={Dark}>
-              <Button text="UNIRSE A DISCORD" link="#" />
+              <Button text="See My gihub" link="https://github.com/alucart2005" />
             </ThemeProvider>
           </ButtonContainer>
         </Box>

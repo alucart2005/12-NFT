@@ -7,7 +7,7 @@ export default function TypeWriterText() {
   return (
     <>
       <Title>
-        aprende react creando proyectos
+      Web applications development
         <Typewriter
           options={{
             // strings: ["Hello", "World"],
@@ -16,22 +16,22 @@ export default function TypeWriterText() {
           }}
           onInit={(typewriter) => {
             typewriter
-              .typeString(`<span class="text-1">divertidos<span/>`)
+              .typeString(`<span class="text-1">fun<span/>`)
               .pauseFor(500)
               .deleteAll()
-              .typeString(`<span class="text-2">Increibles<span/>`)
+              .typeString(`<span class="text-2">incredible<span/>`)
               .pauseFor(500)
               .deleteAll()
-              .typeString(`<span class="text-3">reutilizables!<span/>`)
+              .typeString(`<span class="text-3">reusable<span/>`)
               .pauseFor(500)
               .deleteAll()
               .start();
           }}
         ></Typewriter>
       </Title>
-      <SubTitle>React es cool 😎🧡</SubTitle>
+      <SubTitle>developing is cool 😎🧡</SubTitle>
       <BottonContainer>
-        <Button text="Explorar Curso" link="https://www.codewizardai.com/" />
+        <Button text="Hire Me !!!" link="https://www.linkedin.com/in/napoleon-anaya/" />
       </BottonContainer>
     </>
   );
